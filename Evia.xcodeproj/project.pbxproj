@@ -7,15 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F66A23C15AB9EB9CF0FD2E2 /* Pods_Evia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181EEFF35966594B7BB744F2 /* Pods_Evia.framework */; };
 		DC61F7932B1E03D800B15A27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61F7922B1E03D800B15A27 /* AppDelegate.swift */; };
 		DC61F7952B1E03D800B15A27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61F7942B1E03D800B15A27 /* SceneDelegate.swift */; };
 		DC61F7972B1E03D800B15A27 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61F7962B1E03D800B15A27 /* ViewController.swift */; };
 		DC61F79C2B1E03D900B15A27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC61F79B2B1E03D900B15A27 /* Assets.xcassets */; };
 		DC61F79F2B1E03D900B15A27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC61F79D2B1E03D900B15A27 /* LaunchScreen.storyboard */; };
 		DC61F7A82B1E085700B15A27 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61F7A72B1E085700B15A27 /* UIViewControllerExtension.swift */; };
+		DCB6AFCC2B21031200A73C79 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DCB6AFC92B20FB7F00A73C79 /* .swiftlint.yml */; };
+		DCB6AFD52B21043400A73C79 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB6AFD42B21043400A73C79 /* Icons.xcassets */; };
+		DCB6AFD72B21044E00A73C79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB6AFD62B21044E00A73C79 /* Images.xcassets */; };
+		DCB6AFD92B21045900A73C79 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB6AFD82B21045900A73C79 /* Colors.xcassets */; };
+		DCB6AFDC2B21057E00A73C79 /* General.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCB6AFDB2B21057E00A73C79 /* General.strings */; };
+		DCB6AFE12B210A9900A73C79 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = DCB6AFE02B210A9900A73C79 /* swiftgen.yml */; };
+		DCB6AFE32B210C3900A73C79 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6AFE22B210C3900A73C79 /* Assets.swift */; };
+		DCB6AFE52B210C4200A73C79 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6AFE42B210C4200A73C79 /* Fonts.swift */; };
+		DCB6AFE72B210C4A00A73C79 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6AFE62B210C4A00A73C79 /* StringConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		181EEFF35966594B7BB744F2 /* Pods_Evia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Evia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EE472422698ACF3AA8F9D34 /* Pods-Evia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Evia.release.xcconfig"; path = "Target Support Files/Pods-Evia/Pods-Evia.release.xcconfig"; sourceTree = "<group>"; };
+		B083880E348329E1E3C2767E /* Pods-Evia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Evia.debug.xcconfig"; path = "Target Support Files/Pods-Evia/Pods-Evia.debug.xcconfig"; sourceTree = "<group>"; };
 		DC61F78F2B1E03D800B15A27 /* Evia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Evia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC61F7922B1E03D800B15A27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC61F7942B1E03D800B15A27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +37,15 @@
 		DC61F79E2B1E03D900B15A27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC61F7A02B1E03D900B15A27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC61F7A72B1E085700B15A27 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		DCB6AFC92B20FB7F00A73C79 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		DCB6AFD42B21043400A73C79 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
+		DCB6AFD62B21044E00A73C79 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DCB6AFD82B21045900A73C79 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		DCB6AFDB2B21057E00A73C79 /* General.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = General.strings; sourceTree = "<group>"; };
+		DCB6AFE02B210A9900A73C79 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		DCB6AFE22B210C3900A73C79 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		DCB6AFE42B210C4200A73C79 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		DCB6AFE62B210C4A00A73C79 /* StringConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +53,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F66A23C15AB9EB9CF0FD2E2 /* Pods_Evia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B9EDC838950A93318387ED73 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B083880E348329E1E3C2767E /* Pods-Evia.debug.xcconfig */,
+				4EE472422698ACF3AA8F9D34 /* Pods-Evia.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DB49908F0439796199812327 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				181EEFF35966594B7BB744F2 /* Pods_Evia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DC61F7862B1E03D800B15A27 = {
 			isa = PBXGroup;
 			children = (
+				DCB6AFE02B210A9900A73C79 /* swiftgen.yml */,
+				DCB6AFC92B20FB7F00A73C79 /* .swiftlint.yml */,
 				DC61F7912B1E03D800B15A27 /* Evia */,
 				DC61F7902B1E03D800B15A27 /* Products */,
+				B9EDC838950A93318387ED73 /* Pods */,
+				DB49908F0439796199812327 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,10 +100,10 @@
 		DC61F7912B1E03D800B15A27 /* Evia */ = {
 			isa = PBXGroup;
 			children = (
+				DCB6AFC72B20F9FE00A73C79 /* AppDelegate */,
 				DC61F7A62B1E083800B15A27 /* Extensions */,
-				DC61F7922B1E03D800B15A27 /* AppDelegate.swift */,
-				DC61F7942B1E03D800B15A27 /* SceneDelegate.swift */,
-				DC61F7962B1E03D800B15A27 /* ViewController.swift */,
+				DCB6AFD02B2103C800A73C79 /* Resources */,
+				DCB6AFE82B210C7B00A73C79 /* Scene */,
 				DC61F79B2B1E03D900B15A27 /* Assets.xcassets */,
 				DC61F79D2B1E03D900B15A27 /* LaunchScreen.storyboard */,
 				DC61F7A02B1E03D900B15A27 /* Info.plist */,
@@ -75,6 +119,85 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		DCB6AFC72B20F9FE00A73C79 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				DC61F7922B1E03D800B15A27 /* AppDelegate.swift */,
+				DC61F7942B1E03D800B15A27 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		DCB6AFD02B2103C800A73C79 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DCB6AFD12B2103CF00A73C79 /* Assets */,
+				DCB6AFD22B2103D600A73C79 /* Fonts */,
+				DCB6AFD32B2103DE00A73C79 /* Strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DCB6AFD12B2103CF00A73C79 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DCB6AFE22B210C3900A73C79 /* Assets.swift */,
+				DCB6AFD42B21043400A73C79 /* Icons.xcassets */,
+				DCB6AFD62B21044E00A73C79 /* Images.xcassets */,
+				DCB6AFD82B21045900A73C79 /* Colors.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		DCB6AFD22B2103D600A73C79 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DCB6AFE42B210C4200A73C79 /* Fonts.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DCB6AFD32B2103DE00A73C79 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				DCB6AFE62B210C4A00A73C79 /* StringConstants.swift */,
+				DCB6AFDB2B21057E00A73C79 /* General.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		DCB6AFE82B210C7B00A73C79 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				DCB6AFEC2B210CA200A73C79 /* Home */,
+				DCB6AFE92B210C8100A73C79 /* Auth */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		DCB6AFE92B210C8100A73C79 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				DCB6AFEA2B210C8800A73C79 /* Login */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		DCB6AFEA2B210C8800A73C79 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		DCB6AFEC2B210CA200A73C79 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DC61F7962B1E03D800B15A27 /* ViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -82,9 +205,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC61F7A32B1E03D900B15A27 /* Build configuration list for PBXNativeTarget "Evia" */;
 			buildPhases = (
+				357D4F94405179BEA9983DF0 /* [CP] Check Pods Manifest.lock */,
 				DC61F78B2B1E03D800B15A27 /* Sources */,
 				DC61F78C2B1E03D800B15A27 /* Frameworks */,
 				DC61F78D2B1E03D800B15A27 /* Resources */,
+				DCB6AFCD2B21031F00A73C79 /* SwiftLint */,
+				DCB6AFDD2B21074A00A73C79 /* Swiftgen */,
 			);
 			buildRules = (
 			);
@@ -133,12 +259,79 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCB6AFCC2B21031200A73C79 /* .swiftlint.yml in Resources */,
 				DC61F79F2B1E03D900B15A27 /* LaunchScreen.storyboard in Resources */,
 				DC61F79C2B1E03D900B15A27 /* Assets.xcassets in Resources */,
+				DCB6AFE12B210A9900A73C79 /* swiftgen.yml in Resources */,
+				DCB6AFD72B21044E00A73C79 /* Images.xcassets in Resources */,
+				DCB6AFDC2B21057E00A73C79 /* General.strings in Resources */,
+				DCB6AFD52B21043400A73C79 /* Icons.xcassets in Resources */,
+				DCB6AFD92B21045900A73C79 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		357D4F94405179BEA9983DF0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Evia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCB6AFCD2B21031F00A73C79 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		DCB6AFDD2B21074A00A73C79 /* Swiftgen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftgen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DC61F78B2B1E03D800B15A27 /* Sources */ = {
@@ -148,6 +341,9 @@
 				DC61F7A82B1E085700B15A27 /* UIViewControllerExtension.swift in Sources */,
 				DC61F7972B1E03D800B15A27 /* ViewController.swift in Sources */,
 				DC61F7932B1E03D800B15A27 /* AppDelegate.swift in Sources */,
+				DCB6AFE72B210C4A00A73C79 /* StringConstants.swift in Sources */,
+				DCB6AFE32B210C3900A73C79 /* Assets.swift in Sources */,
+				DCB6AFE52B210C4200A73C79 /* Fonts.swift in Sources */,
 				DC61F7952B1E03D800B15A27 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,12 +483,15 @@
 		};
 		DC61F7A42B1E03D900B15A27 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B083880E348329E1E3C2767E /* Pods-Evia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 27976765KZ;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Evia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -300,6 +499,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,12 +515,15 @@
 		};
 		DC61F7A52B1E03D900B15A27 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EE472422698ACF3AA8F9D34 /* Pods-Evia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 27976765KZ;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Evia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -328,6 +531,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

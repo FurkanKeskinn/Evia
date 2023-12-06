@@ -1,0 +1,27 @@
+strings:
+  inputs: Evia/Resources/Strings
+  filter: .+\.strings$
+  outputs:
+    - templateName: structured-swift5
+      output: Evia/Resources/Strings/StringConstants.swift
+      params:
+          publicAccess: public
+
+xcassets:
+  inputs:
+    - Evia/Resources/Assets/Icons.xcassets
+    - Evia/Resources/Assets/Images.xcassets
+    - Evia/Resources/Assets/Colors.xcassets
+  outputs:
+    templateName: swift5
+    output: Evia/Resources/Assets/Assets.swift
+    params:
+          publicAccess: public
+      
+fonts:
+  inputs: Evia/Resources/Fonts
+  outputs:
+    templateName: swift5
+    output: Evia/Resources/Fonts/Fonts.swift
+    params:
+        publicAccess: public
