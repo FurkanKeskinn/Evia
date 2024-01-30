@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		0F66A23C15AB9EB9CF0FD2E2 /* Pods_Evia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181EEFF35966594B7BB744F2 /* Pods_Evia.framework */; };
+		DC4600FF2B69324600EA525E /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC98966F2B65AA6F00B6A41B /* Inter-Regular.ttf */; };
+		DC4601002B69324600EA525E /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC9896732B65AA7000B6A41B /* Inter-SemiBold.ttf */; };
+		DC4601022B69370100EA525E /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4601012B69348A00EA525E /* Inter-Medium.ttf */; };
 		DC61F7932B1E03D800B15A27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61F7922B1E03D800B15A27 /* AppDelegate.swift */; };
 		DC61F7952B1E03D800B15A27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61F7942B1E03D800B15A27 /* SceneDelegate.swift */; };
 		DC61F7972B1E03D800B15A27 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61F7962B1E03D800B15A27 /* ViewController.swift */; };
 		DC61F79C2B1E03D900B15A27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC61F79B2B1E03D900B15A27 /* Assets.xcassets */; };
 		DC61F79F2B1E03D900B15A27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC61F79D2B1E03D900B15A27 /* LaunchScreen.storyboard */; };
 		DC61F7A82B1E085700B15A27 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61F7A72B1E085700B15A27 /* UIViewControllerExtension.swift */; };
+		DC9896582B65927300B6A41B /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9896572B65927300B6A41B /* WeatherView.swift */; };
+		DC9896752B65AA7600B6A41B /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9896742B65AA7500B6A41B /* UIFont+Extensions.swift */; };
 		DCB6AFCC2B21031200A73C79 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DCB6AFC92B20FB7F00A73C79 /* .swiftlint.yml */; };
 		DCB6AFD52B21043400A73C79 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB6AFD42B21043400A73C79 /* Icons.xcassets */; };
 		DCB6AFD72B21044E00A73C79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB6AFD62B21044E00A73C79 /* Images.xcassets */; };
@@ -23,12 +28,15 @@
 		DCB6AFE32B210C3900A73C79 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6AFE22B210C3900A73C79 /* Assets.swift */; };
 		DCB6AFE52B210C4200A73C79 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6AFE42B210C4200A73C79 /* Fonts.swift */; };
 		DCB6AFE72B210C4A00A73C79 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6AFE62B210C4A00A73C79 /* StringConstants.swift */; };
+		DCD47D3D2B4325D400000135 /* DevicesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD47D3C2B4325D400000135 /* DevicesCollectionViewCell.swift */; };
+		DCF8BDFD2B24B4E500085800 /* ActionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF8BDFC2B24B4E500085800 /* ActionsCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		181EEFF35966594B7BB744F2 /* Pods_Evia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Evia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EE472422698ACF3AA8F9D34 /* Pods-Evia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Evia.release.xcconfig"; path = "Target Support Files/Pods-Evia/Pods-Evia.release.xcconfig"; sourceTree = "<group>"; };
 		B083880E348329E1E3C2767E /* Pods-Evia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Evia.debug.xcconfig"; path = "Target Support Files/Pods-Evia/Pods-Evia.debug.xcconfig"; sourceTree = "<group>"; };
+		DC4601012B69348A00EA525E /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		DC61F78F2B1E03D800B15A27 /* Evia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Evia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC61F7922B1E03D800B15A27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC61F7942B1E03D800B15A27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +45,10 @@
 		DC61F79E2B1E03D900B15A27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC61F7A02B1E03D900B15A27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC61F7A72B1E085700B15A27 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		DC9896572B65927300B6A41B /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		DC98966F2B65AA6F00B6A41B /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		DC9896732B65AA7000B6A41B /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		DC9896742B65AA7500B6A41B /* UIFont+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		DCB6AFC92B20FB7F00A73C79 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		DCB6AFD42B21043400A73C79 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		DCB6AFD62B21044E00A73C79 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -46,6 +58,8 @@
 		DCB6AFE22B210C3900A73C79 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		DCB6AFE42B210C4200A73C79 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		DCB6AFE62B210C4A00A73C79 /* StringConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		DCD47D3C2B4325D400000135 /* DevicesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesCollectionViewCell.swift; sourceTree = "<group>"; };
+		DCF8BDFC2B24B4E500085800 /* ActionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +167,10 @@
 			isa = PBXGroup;
 			children = (
 				DCB6AFE42B210C4200A73C79 /* Fonts.swift */,
+				DC4601012B69348A00EA525E /* Inter-Medium.ttf */,
+				DC98966F2B65AA6F00B6A41B /* Inter-Regular.ttf */,
+				DC9896732B65AA7000B6A41B /* Inter-SemiBold.ttf */,
+				DC9896742B65AA7500B6A41B /* UIFont+Extensions.swift */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -194,6 +212,9 @@
 			isa = PBXGroup;
 			children = (
 				DC61F7962B1E03D800B15A27 /* ViewController.swift */,
+				DCF8BDFC2B24B4E500085800 /* ActionsCollectionViewCell.swift */,
+				DCD47D3C2B4325D400000135 /* DevicesCollectionViewCell.swift */,
+				DC9896572B65927300B6A41B /* WeatherView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -259,6 +280,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC4601022B69370100EA525E /* Inter-Medium.ttf in Resources */,
+				DC4600FF2B69324600EA525E /* Inter-Regular.ttf in Resources */,
+				DC4601002B69324600EA525E /* Inter-SemiBold.ttf in Resources */,
 				DCB6AFCC2B21031200A73C79 /* .swiftlint.yml in Resources */,
 				DC61F79F2B1E03D900B15A27 /* LaunchScreen.storyboard in Resources */,
 				DC61F79C2B1E03D900B15A27 /* Assets.xcassets in Resources */,
@@ -338,9 +362,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCD47D3D2B4325D400000135 /* DevicesCollectionViewCell.swift in Sources */,
+				DC9896752B65AA7600B6A41B /* UIFont+Extensions.swift in Sources */,
 				DC61F7A82B1E085700B15A27 /* UIViewControllerExtension.swift in Sources */,
 				DC61F7972B1E03D800B15A27 /* ViewController.swift in Sources */,
 				DC61F7932B1E03D800B15A27 /* AppDelegate.swift in Sources */,
+				DCF8BDFD2B24B4E500085800 /* ActionsCollectionViewCell.swift in Sources */,
+				DC9896582B65927300B6A41B /* WeatherView.swift in Sources */,
 				DCB6AFE72B210C4A00A73C79 /* StringConstants.swift in Sources */,
 				DCB6AFE32B210C3900A73C79 /* Assets.swift in Sources */,
 				DCB6AFE52B210C4200A73C79 /* Fonts.swift in Sources */,
