@@ -13,7 +13,6 @@ extension UIFont {
   enum FontWeight {
       case interRegular
       case interMedium
-      case interSemiBold
   }
 
   // swiftlint:disable identifier_name
@@ -30,7 +29,7 @@ extension UIFont {
       /// 26
       case h1
 
-      /// 22
+      /// 18
       case h2
 
       /// 17
@@ -60,7 +59,7 @@ extension UIFont {
           case .xlarge:  return 50
           case .large:  return 40
           case .h1: return 26
-          case .h2: return 22
+          case .h2: return 18
           case .h3: return 17
           case .h4: return 16
           case .h5: return 15
@@ -80,8 +79,6 @@ extension UIFont {
           font = FontFamily.Inter.regular.font(size: size.rawValue)
       case .interMedium:
           font = FontFamily.Inter.medium.font(size: size.rawValue)
-      case .interSemiBold:
-          font = FontFamily.Inter.semiBold.font(size: size.rawValue)
       }
       return font
   }

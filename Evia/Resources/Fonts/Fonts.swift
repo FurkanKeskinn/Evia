@@ -23,8 +23,7 @@ public enum FontFamily {
   public enum Inter {
     public static let medium = FontConvertible(name: "Inter-Medium", family: "Inter", path: "Inter-Medium.ttf")
     public static let regular = FontConvertible(name: "Inter-Regular", family: "Inter", path: "Inter-Regular.ttf")
-    public static let semiBold = FontConvertible(name: "Inter-SemiBold", family: "Inter", path: "Inter-SemiBold.ttf")
-    public static let all: [FontConvertible] = [medium, regular, semiBold]
+    public static let all: [FontConvertible] = [medium, regular]
   }
   public static let allCustomFonts: [FontConvertible] = [Inter.all].flatMap { $0 }
   public static func registerAllCustomFonts() {

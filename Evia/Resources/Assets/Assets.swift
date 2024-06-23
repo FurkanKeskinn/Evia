@@ -25,23 +25,36 @@ public typealias AssetImageTypeAlias = ImageAsset.Image
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 public enum Asset {
   public enum Colors {
+    public static let appBlack = ColorAsset(name: "appBlack")
+    public static let appDarkGray = ColorAsset(name: "appDarkGray")
     public static let appDarkGreen = ColorAsset(name: "appDarkGreen")
     public static let appEdit = ColorAsset(name: "appEdit")
     public static let appGreen = ColorAsset(name: "appGreen")
+    public static let appLightGray = ColorAsset(name: "appLightGray")
     public static let appPurple = ColorAsset(name: "appPurple")
+    public static let appRed = ColorAsset(name: "appRed")
     public static let appWeather = ColorAsset(name: "appWeather")
+    public static let appWhite = ColorAsset(name: "appWhite")
     public static let appYellow = ColorAsset(name: "appYellow")
+    public static let apploginBack = ColorAsset(name: "apploginBack")
   }
   public enum Icons {
-    public static let bookmark = ImageAsset(name: "Bookmark")
     public static let home = ImageAsset(name: "Home")
-    public static let settings = ImageAsset(name: "Settings")
+    public static let addPlus = ImageAsset(name: "add_plus")
+    public static let back = ImageAsset(name: "back")
+    public static let bookmark = ImageAsset(name: "bookmark")
     public static let down = ImageAsset(name: "down")
+    public static let error = ImageAsset(name: "error")
+    public static let icEdit = ImageAsset(name: "ic_edit")
+    public static let icError = ImageAsset(name: "ic_error")
+    public static let icTrash = ImageAsset(name: "ic_trash")
     public static let location = ImageAsset(name: "location")
     public static let plus = ImageAsset(name: "plus")
+    public static let settings = ImageAsset(name: "settings")
   }
   public enum Images {
-    public static let weatherImage = ImageAsset(name: "weatherImage")
+    public static let house = ImageAsset(name: "house")
+    public static let weather = ImageAsset(name: "weather")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
