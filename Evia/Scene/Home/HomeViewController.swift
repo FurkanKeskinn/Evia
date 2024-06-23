@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     private let datas: [String] = ["Arriving Home", "Leaving", "Night Time", "Leaving", "Arrive Home", "Night Time"]
     
@@ -149,7 +149,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - Layout
-extension ViewController {
+extension HomeViewController {
     
     private func setupViews() {
         view.addSubview(scrollView)
@@ -176,10 +176,9 @@ extension ViewController {
             weatherView.heightAnchor.constraint(equalToConstant: 164)
         ]
         let mainStackViewConstraints = [
-            mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 60),
-            mainStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
-            mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            mainStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+            mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            mainStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40)
         ]
         
         let collectionViewConstraints = [
@@ -217,7 +216,7 @@ extension ViewController {
 
 // MARK: - Actions CollectionView
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
       if collectionView == actionCollectionView {
           return datas.count + 1
@@ -258,7 +257,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 }
 
 // MARK: - Weather
-extension ViewController {
+extension HomeViewController {
     private func updateWeatherView(city: String, temperature: String) {
             // WeatherView'in içeriğini güncelleyin
             weatherView.cityLabel.text = city
@@ -275,7 +274,7 @@ import SwiftUI
 @available(iOS 13, *)
 struct ViewControllerPreview: PreviewProvider {
     static var previews: some View {
-        ViewController().showPreview()
+        HomeViewController().showPreview()
     }
 }
 #endif
