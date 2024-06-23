@@ -146,6 +146,7 @@ class HomeViewController: UIViewController {
         
        // setupGestureRecognizers()
         
+        
         actionCollectionView.dataSource = self
         actionCollectionView.delegate = self
         
