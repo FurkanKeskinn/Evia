@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  Evia
 //
 //  Created by Furkan on 4.12.2023.
@@ -11,7 +11,7 @@ class HomeViewController: UIViewController {
 
     private let datas: [String] = ["Arriving Home", "Leaving", "Night Time", "Leaving", "Arrive Home", "Night Time"]
     
-   private let titleLabel: UILabel = {
+  /* private let titleLabel: UILabel = {
        let label = UILabel()
         label.text = "Home"
        label.font = .font(.interRegular, size: .large)
@@ -23,6 +23,17 @@ class HomeViewController: UIViewController {
         let image = UIImageView()
         image.image = UIImage(asset: Asset.Icons.down)
         return image
+    }()
+    */
+    private let titleButton: UIButton = {
+       let button = UIButton()
+        button.setTitle("Home", for: .normal)
+        button.titleLabel?.font = .font(.interRegular, size: .large)
+        button.setTitleColor(.appBlack, for: .normal)
+        button.setImage(UIImage(asset: Asset.Icons.down), for: .normal)
+        button.semanticContentAttribute = .forceRightToLeft
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     private let settingsButton: UIButton = {
@@ -65,6 +76,7 @@ class HomeViewController: UIViewController {
          button.setTitle("Edit", for: .normal)
          button.setTitleColor(.appEdit, for: .normal)
          button.titleLabel?.font = .font(.interMedium, size: .h6)
+         button.addTarget(self, action: #selector(buttonEditTapped), for: .touchUpInside)
          return button
      }()
      
@@ -94,9 +106,7 @@ class HomeViewController: UIViewController {
     private let actionCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
          layout.scrollDirection = .horizontal
-        layout.estimatedItemSize = CGSize(width: 10, height: 0)
-        //layout.sectionInset = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50) // Sola ve Sağa boşluk
-        //layout.minimumLineSpacing = 45
+        layout.estimatedItemSize = CGSize(width: layout.itemSize.width, height: 0)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
          collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -114,13 +124,12 @@ class HomeViewController: UIViewController {
     private let devicesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 160, height: 110)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
-        layout.minimumLineSpacing = 16
+        layout.itemSize = CGSize(width: layout.itemSize.width * 3.2, height: layout.itemSize.height * 2.2) // 160 x 110
+        layout.sectionInset = UIEdgeInsets(top: 0, left: layout.itemSize.width / 20, bottom: 0, right: layout.itemSize.height / 15) // 8 - 8
+        layout.minimumLineSpacing = layout.itemSize.height / 7 // 16
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(DevicesCollectionViewCell.self, forCellWithReuseIdentifier: DevicesCollectionViewCell.identifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.isScrollEnabled = false
         return collectionView
     }()
     
@@ -134,8 +143,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         applyConstraints()
-        //actionCollectionView.reloadData()
-        view.backgroundColor = .systemBackground
+        
+       // setupGestureRecognizers()
         
         actionCollectionView.dataSource = self
         actionCollectionView.delegate = self
@@ -162,42 +171,40 @@ extension HomeViewController {
         mainStackView.addArrangedSubview(devicesCollectionView)
         topStackView.addArrangedSubview(titleStackView)
         topStackView.addArrangedSubview(settingsButton)
-        titleStackView.addArrangedSubview(titleLabel)
-        titleStackView.addArrangedSubview(titleIcon)
+        //titleStackView.addArrangedSubview(titleLabel)
+        titleStackView.addArrangedSubview(titleButton)
         actionStackView.addArrangedSubview(quickActionStackView)
         actionStackView.addArrangedSubview(editButton)
         quickActionStackView.addArrangedSubview(bookmarkIcon)
         quickActionStackView.addArrangedSubview(quickActionLabel)
+        view.backgroundColor = .systemBackground
     }
     
     private func applyConstraints() {
         
         let weatherViewConstraints = [
-            weatherView.heightAnchor.constraint(equalToConstant: 164)
+            weatherView.heightAnchor.constraint(equalToConstant: 164),
+            weatherView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
         ]
         let mainStackViewConstraints = [
             mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            mainStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            mainStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40)
+            mainStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40),
+            mainStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ]
         
         let collectionViewConstraints = [
             actionCollectionView.topAnchor.constraint(equalTo: quickActionStackView.bottomAnchor, constant: 15),
-           // collectionView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
             actionCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             actionCollectionView.heightAnchor.constraint(equalToConstant: 48)
         ]
         
         let devicesCollectionViewConstraints = [
-            //devicesCollectionView.topAnchor.constraint(equalTo: devicesLabel.bottomAnchor),
-            //devicesCollectionView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
-            //devicesCollectionView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor),
-            devicesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            
+            devicesCollectionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            devicesCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height / 1.36) // 615
         ]
         
         let scrollViewConstraints = [
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -214,9 +221,27 @@ extension HomeViewController {
     }
 }
 
-// MARK: - Actions CollectionView
+// MARK: - Actions
+extension HomeViewController {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    @objc private func buttonAddActionTapped() {
+        self.navigationController?.pushViewController(NewQuickActionViewController(), animated: true)
+    }
+    
+    @objc private func buttonEditTapped() {
+        self.navigationController?.pushViewController(EditActionsViewController(), animated: true)
+    }
+    
+}
 
+// MARK: - Actions and Devices CollectionView
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
       if collectionView == actionCollectionView {
           return datas.count + 1
@@ -238,11 +263,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 cell?.actionsButton.setImage(UIImage(asset: Asset.Icons.plus), for: .normal)
                 cell?.actionsButton.backgroundColor = .appDarkGreen
                 cell?.actionsButton.setTitle("", for: .normal)
+                cell?.actionsButton.addTarget(self, action: #selector(buttonAddActionTapped), for: .touchUpInside)
                 return cell!
             }else {
                 
                 cell?.actionsButton.setTitle(datas[indexPath.row - 1], for: .normal)
                 cell?.actionsButton.backgroundColor = cellColors[indexPath.row]
+                cell?.actionsButton.setImage(nil, for: .normal)
                 return cell!
             }
             
@@ -253,20 +280,81 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         return UICollectionViewCell()
     }
-    
 }
 
-// MARK: - Weather
+// MARK: - Weather View
 extension HomeViewController {
     private func updateWeatherView(city: String, temperature: String) {
             // WeatherView'in içeriğini güncelleyin
             weatherView.cityLabel.text = city
             weatherView.temperatureLabel.text = temperature
             // İkonları güncellemek için gerekirse:
-        weatherView.weatherIconImageView.image = UIImage(asset: Asset.Images.weatherImage)
+        weatherView.weatherIconImageView.image = UIImage(asset: Asset.Images.weather)
         weatherView.locationIconImageView.image = UIImage(asset: Asset.Icons.location)
         }
 }
+
+extension HomeViewController {
+   /* private func setupGestureRecognizers() {
+        // UITapGestureRecognizer oluştur
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        titleLabel.addGestureRecognizer(tapGesture)
+        titleLabel.isUserInteractionEnabled = true // Kullanıcı etkileşimini etkinleştir
+    }*/
+
+    @objc private func handleTap(_ sender: UITapGestureRecognizer) {
+        // Menüyü oluştur
+        let menu = UIMenu(title: "Home", children: [
+            UIAction(title: "Action 1", image: nil) { _ in
+                // Eylem 1'in gerçekleştirilmesi
+                print("Action 1 selected")
+            },
+            UIAction(title: "Action 2", image: nil) { _ in
+                // Eylem 2'nin gerçekleştirilmesi
+                print("Action 2 selected")
+            }
+        ])
+        
+        // Menüyü göster
+        if let tapView = sender.view {
+            // Menüyü konumlandırmak için bir target ve action seçilmelidir. Aşağıda örnekte hedef olarak nil ve aksiyon olarak boş bir closure kullanılmıştır.
+            let menuController = UIMenuController.shared
+            menuController.showMenu(from: tapView, rect: tapView.bounds)
+        }
+
+    }
+}
+
+
+/*extension HomeViewController {
+    private func setupGestureRecognizers() {
+        // UITapGestureRecognizer oluştur
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        titleLabel.addGestureRecognizer(tapGesture)
+        titleLabel.isUserInteractionEnabled = true // Kullanıcı etkileşimini etkinleştir
+    }
+
+    @objc private func handleTap(_ sender: UITapGestureRecognizer) {
+        // Burada istediğiniz işlemleri gerçekleştirin
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let action1 = UIAlertAction(title: "Action 1", style: .default) { _ in
+            // Eylem 1'in gerçekleştirilmesi
+            print("Action 1 selected")
+        }
+        let action2 = UIAlertAction(title: "Action 2", style: .default) { _ in
+            // Eylem 2'nin gerçekleştirilmesi
+            print("Action 2 selected")
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        actionSheet.addAction(action1)
+        actionSheet.addAction(action2)
+        actionSheet.addAction(cancelAction)
+        
+        present(actionSheet, animated: true, completion: nil)
+    }
+}*/
 
 import SwiftUI
 #if DEBUG
