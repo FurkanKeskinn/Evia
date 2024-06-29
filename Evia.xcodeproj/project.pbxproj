@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F66A23C15AB9EB9CF0FD2E2 /* Pods_Evia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181EEFF35966594B7BB744F2 /* Pods_Evia.framework */; };
+		CFF0CC5CE36C8F79439800E4 /* Pods_Evia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181EEFF35966594B7BB744F2 /* Pods_Evia.framework */; };
 		DC2B5B6B2B84C6E500115DB8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B5B6A2B84C6E500115DB8 /* LoginViewController.swift */; };
 		DC2B5B732B84E0B100115DB8 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B5B722B84E0B100115DB8 /* FloatLabelTextField.swift */; };
+		DC350D002C30263D00875FFE /* SetDeviceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC350CFF2C30263D00875FFE /* SetDeviceStatus.swift */; };
 		DC3742AD2B90F9A70007F799 /* CustomBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3742AC2B90F9A70007F799 /* CustomBottomSheetView.swift */; };
 		DC4600FF2B69324600EA525E /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC98966F2B65AA6F00B6A41B /* Inter-Regular.ttf */; };
 		DC4601022B69370100EA525E /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4601012B69348A00EA525E /* Inter-Medium.ttf */; };
+		DC5C38702C2D9DEF00A8DBA8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5C386F2C2D9DEF00A8DBA8 /* Error.swift */; };
+		DC5C38722C2D9E6800A8DBA8 /* Devices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5C38712C2D9E6800A8DBA8 /* Devices.swift */; };
+		DC5C38742C2D9F2800A8DBA8 /* DevicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5C38732C2D9F2800A8DBA8 /* DevicesViewModel.swift */; };
 		DC61F7932B1E03D800B15A27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61F7922B1E03D800B15A27 /* AppDelegate.swift */; };
 		DC61F7952B1E03D800B15A27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61F7942B1E03D800B15A27 /* SceneDelegate.swift */; };
 		DC61F7972B1E03D800B15A27 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61F7962B1E03D800B15A27 /* HomeViewController.swift */; };
@@ -34,7 +38,12 @@
 		DCB6AFE32B210C3900A73C79 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6AFE22B210C3900A73C79 /* Assets.swift */; };
 		DCB6AFE52B210C4200A73C79 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6AFE42B210C4200A73C79 /* Fonts.swift */; };
 		DCB6AFE72B210C4A00A73C79 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6AFE62B210C4A00A73C79 /* StringConstants.swift */; };
+		DCC1DA312C2AE7F10050396E /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC1DA302C2AE7F10050396E /* WeatherService.swift */; };
+		DCC1DA332C2AE9A80050396E /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC1DA322C2AE9A80050396E /* Weather.swift */; };
+		DCC1DA382C2AF1250050396E /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC1DA372C2AF1250050396E /* WeatherViewModel.swift */; };
 		DCD47D3D2B4325D400000135 /* DevicesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD47D3C2B4325D400000135 /* DevicesCollectionViewCell.swift */; };
+		DCEBD1B42C285723005252D4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEBD1B32C285723005252D4 /* Constants.swift */; };
+		DCEBD1B92C28588A005252D4 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEBD1B82C28588A005252D4 /* HomeService.swift */; };
 		DCF8BDFD2B24B4E500085800 /* ActionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF8BDFC2B24B4E500085800 /* ActionsCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,8 +53,12 @@
 		B083880E348329E1E3C2767E /* Pods-Evia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Evia.debug.xcconfig"; path = "Target Support Files/Pods-Evia/Pods-Evia.debug.xcconfig"; sourceTree = "<group>"; };
 		DC2B5B6A2B84C6E500115DB8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DC2B5B722B84E0B100115DB8 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
+		DC350CFF2C30263D00875FFE /* SetDeviceStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetDeviceStatus.swift; path = Weather/SetDeviceStatus.swift; sourceTree = "<group>"; };
 		DC3742AC2B90F9A70007F799 /* CustomBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomSheetView.swift; sourceTree = "<group>"; };
 		DC4601012B69348A00EA525E /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		DC5C386F2C2D9DEF00A8DBA8 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		DC5C38712C2D9E6800A8DBA8 /* Devices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Devices.swift; sourceTree = "<group>"; };
+		DC5C38732C2D9F2800A8DBA8 /* DevicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewModel.swift; sourceTree = "<group>"; };
 		DC61F78F2B1E03D800B15A27 /* Evia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Evia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC61F7922B1E03D800B15A27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC61F7942B1E03D800B15A27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,7 +83,12 @@
 		DCB6AFE22B210C3900A73C79 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		DCB6AFE42B210C4200A73C79 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		DCB6AFE62B210C4A00A73C79 /* StringConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		DCC1DA302C2AE7F10050396E /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		DCC1DA322C2AE9A80050396E /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		DCC1DA372C2AF1250050396E /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		DCD47D3C2B4325D400000135 /* DevicesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesCollectionViewCell.swift; sourceTree = "<group>"; };
+		DCEBD1B32C285723005252D4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DCEBD1B82C28588A005252D4 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		DCF8BDFC2B24B4E500085800 /* ActionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,7 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F66A23C15AB9EB9CF0FD2E2 /* Pods_Evia.framework in Frameworks */,
+				CFF0CC5CE36C8F79439800E4 /* Pods_Evia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +209,8 @@
 				DC61F7A62B1E083800B15A27 /* Extensions */,
 				DCB6AFD02B2103C800A73C79 /* Resources */,
 				DC2B5B6C2B84DF7300115DB8 /* UIComponents */,
+				DCEBD1B22C285710005252D4 /* Constants */,
+				DCEBD1B52C28573A005252D4 /* Managers */,
 				DCB6AFE82B210C7B00A73C79 /* Scene */,
 				DC61F79B2B1E03D900B15A27 /* Assets.xcassets */,
 				DC61F79D2B1E03D900B15A27 /* LaunchScreen.storyboard */,
@@ -213,6 +233,15 @@
 				DC7036F22BB8A243001E2CB0 /* EditActionsTableViewCell.swift */,
 			);
 			path = EditActions;
+			sourceTree = "<group>";
+		};
+		DC8342732C288BB3005C078A /* HomeViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DCC1DA372C2AF1250050396E /* WeatherViewModel.swift */,
+				DC5C38732C2D9F2800A8DBA8 /* DevicesViewModel.swift */,
+			);
+			path = HomeViewModel;
 			sourceTree = "<group>";
 		};
 		DC8C26B32BACAFF800CD752D /* ForgotPassword */ = {
@@ -328,9 +357,55 @@
 		DCB6AFEC2B210CA200A73C79 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DC8342732C288BB3005C078A /* HomeViewModel */,
 				DC61F7962B1E03D800B15A27 /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		DCC1DA342C2AE9F70050396E /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				DCC1DA322C2AE9A80050396E /* Weather.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		DCEBD1B22C285710005252D4 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				DCEBD1B32C285723005252D4 /* Constants.swift */,
+				DC5C386F2C2D9DEF00A8DBA8 /* Error.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		DCEBD1B52C28573A005252D4 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DCEBD1B72C28574C005252D4 /* ApiService */,
+				DCEBD1B62C285744005252D4 /* Model */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		DCEBD1B62C285744005252D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DCC1DA342C2AE9F70050396E /* Weather */,
+				DC5C38712C2D9E6800A8DBA8 /* Devices.swift */,
+				DC350CFF2C30263D00875FFE /* SetDeviceStatus.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DCEBD1B72C28574C005252D4 /* ApiService */ = {
+			isa = PBXGroup;
+			children = (
+				DCEBD1B82C28588A005252D4 /* HomeService.swift */,
+				DCC1DA302C2AE7F10050396E /* WeatherService.swift */,
+			);
+			path = ApiService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,6 +421,7 @@
 				DC61F78D2B1E03D800B15A27 /* Resources */,
 				DCB6AFCD2B21031F00A73C79 /* SwiftLint */,
 				DCB6AFDD2B21074A00A73C79 /* Swiftgen */,
+				8F563251C30733D1CED28F5E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -432,6 +508,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8F563251C30733D1CED28F5E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Evia/Pods-Evia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Evia/Pods-Evia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Evia/Pods-Evia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DCB6AFCD2B21031F00A73C79 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -475,11 +568,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC5C38742C2D9F2800A8DBA8 /* DevicesViewModel.swift in Sources */,
 				DC2B5B6B2B84C6E500115DB8 /* LoginViewController.swift in Sources */,
+				DCEBD1B42C285723005252D4 /* Constants.swift in Sources */,
 				DCD47D3D2B4325D400000135 /* DevicesCollectionViewCell.swift in Sources */,
 				DC9896752B65AA7600B6A41B /* UIFont+Extensions.swift in Sources */,
 				DC61F7A82B1E085700B15A27 /* UIViewControllerExtension.swift in Sources */,
+				DCC1DA312C2AE7F10050396E /* WeatherService.swift in Sources */,
 				DC61F7972B1E03D800B15A27 /* HomeViewController.swift in Sources */,
+				DC5C38722C2D9E6800A8DBA8 /* Devices.swift in Sources */,
 				DC8C26BA2BACCB7F00CD752D /* NewQuickActionViewController.swift in Sources */,
 				DC61F7932B1E03D800B15A27 /* AppDelegate.swift in Sources */,
 				DC7036F32BB8A243001E2CB0 /* EditActionsTableViewCell.swift in Sources */,
@@ -488,8 +585,13 @@
 				DC9896582B65927300B6A41B /* WeatherView.swift in Sources */,
 				DCB6AFE72B210C4A00A73C79 /* StringConstants.swift in Sources */,
 				DC3742AD2B90F9A70007F799 /* CustomBottomSheetView.swift in Sources */,
+				DCEBD1B92C28588A005252D4 /* HomeService.swift in Sources */,
+				DC5C38702C2D9DEF00A8DBA8 /* Error.swift in Sources */,
+				DCC1DA332C2AE9A80050396E /* Weather.swift in Sources */,
 				DC8C26B52BACB01D00CD752D /* ForgotPasswordViewController.swift in Sources */,
 				DCB6AFE32B210C3900A73C79 /* Assets.swift in Sources */,
+				DCC1DA382C2AF1250050396E /* WeatherViewModel.swift in Sources */,
+				DC350D002C30263D00875FFE /* SetDeviceStatus.swift in Sources */,
 				DCB6AFE52B210C4200A73C79 /* Fonts.swift in Sources */,
 				DC61F7952B1E03D800B15A27 /* SceneDelegate.swift in Sources */,
 				DC7036EF2BB89D38001E2CB0 /* EditActionsViewController.swift in Sources */,

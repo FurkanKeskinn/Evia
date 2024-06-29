@@ -9,5 +9,6 @@ target 'Evia' do
 
     pod 'SwiftLint'
     pod 'SwiftGen', '~> 6.0'
+    pod 'Alamofire'
 
 end

@@ -195,7 +195,7 @@ extension NewQuickActionViewController {
     }
     
     @objc private func buttonContinueTapped() {
-        self.navigationController?.pushViewController(HomeViewController(), animated: true)
+        self.navigationController?.pushViewController(HomeViewController(viewModel: DevicesViewModel()), animated: true)
     }
 }
 

@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
         let image = UIImageView()
         image.image = UIImage(asset: Asset.Icons.down)
         return image
-    }()
+    }() 
     */
     private let titleButton: UIButton = {
        let button = UIButton()
@@ -139,6 +139,10 @@ class HomeViewController: UIViewController {
         return scrollView
         }()
     
+    private var devicesViewModel: DevicesViewModelProtocol
+    private var allDevices: [Devices] = [Devices]()
+    private var weatherViewModel: WeatherViewModelProtocol = WeatherViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -153,10 +157,25 @@ class HomeViewController: UIViewController {
         devicesCollectionView.delegate = self
         devicesCollectionView.dataSource = self
         
-        updateWeatherView(city: "Zagreb, Croatia", temperature: "15°C")
         
+        setupBindings()
+        self.devicesCollectionView.reloadData()
+        weatherViewModel.getWeatherData()
+        devicesViewModel.getallDevicesData()
     }
+    
+    init(viewModel: DevicesViewModel) {
+            self.devicesViewModel = viewModel
+            super.init(nibName: nil, bundle: nil)
+        }
+    
+    // swiftlint:disable fatal_error
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    // swiftlint:enable fatal_error
 }
+
 
 // MARK: - Layout
 extension HomeViewController {
@@ -201,7 +220,7 @@ extension HomeViewController {
         
         let devicesCollectionViewConstraints = [
             devicesCollectionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            devicesCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height / 1.36) // 615
+            devicesCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height / 2.3) // 615
         ]
         
         let scrollViewConstraints = [
@@ -247,7 +266,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
       if collectionView == actionCollectionView {
           return datas.count + 1
       } else if collectionView == devicesCollectionView {
-          return 10
+          return allDevices.count
       }
       return 0
     }
@@ -277,17 +296,58 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         } else if collectionView == devicesCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DevicesCollectionViewCell.identifier, for: indexPath) as? DevicesCollectionViewCell
             cell?.contentView.backgroundColor = .appWeather
+            cell?.configure(with: allDevices[indexPath.row])
+            cell?.switchButton.addTarget(self, action: #selector(switchValueChanged(_:)), for: .valueChanged)
+            
+                    
             return cell!
         }
         return UICollectionViewCell()
     }
+    
+    @objc func switchValueChanged(_ sender: UISwitch) {
+            guard let cell = sender.superview?.superview as? DevicesCollectionViewCell,
+                  let indexPath = devicesCollectionView.indexPath(for: cell) else {
+                return
+            }
+            
+            let device = allDevices[indexPath.row]
+            let newLockState = sender.isOn
+            
+            // Update device status via viewModel
+        devicesViewModel.updateDeviceStatus(id: device.id, isLocked: newLockState) { result in
+                switch result {
+                case .success:
+                    print("Device status updated successfully")
+                case .failure(let error):
+                    print("Failed to update device status: \(error)")
+                    // Handle error
+                }
+            }
+        }
+}
+
+// MARK: - Response Data
+extension HomeViewController {
+    private func setupBindings() {
+        devicesViewModel.reloadData = { [weak self] devices in
+            self?.devicesCollectionView.reloadData()
+            self?.allDevices = devices
+        }
+           weatherViewModel.reloadData = { [weak self] weather in
+               let city = weather.name
+               let temperature = String(Int(weather.main.temp - 273.15)) + "°C"
+               self?.updateWeatherView(city: city, temperature: temperature)
+           }
+       }
 }
 
 // MARK: - Weather View
 extension HomeViewController {
+    
     private func updateWeatherView(city: String, temperature: String) {
             // WeatherView'in içeriğini güncelleyin
-            weatherView.cityLabel.text = city
+        weatherView.cityLabel.text = city
             weatherView.temperatureLabel.text = temperature
             // İkonları güncellemek için gerekirse:
         weatherView.weatherIconImageView.image = UIImage(asset: Asset.Images.weather)
@@ -326,7 +386,6 @@ extension HomeViewController {
     }
 }
 
-
 /*extension HomeViewController {
     private func setupGestureRecognizers() {
         // UITapGestureRecognizer oluştur
@@ -363,7 +422,7 @@ import SwiftUI
 @available(iOS 13, *)
 struct ViewControllerPreview: PreviewProvider {
     static var previews: some View {
-        HomeViewController().showPreview()
+        HomeViewController(viewModel: DevicesViewModel()).showPreview()
     }
 }
 #endif

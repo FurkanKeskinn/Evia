@@ -53,7 +53,7 @@ public enum Asset {
     public static let settings = ImageAsset(name: "settings")
   }
   public enum Images {
-    public static let house = ImageAsset(name: "house")
+    public static let house = ImageAsset(name: "House")
     public static let weather = ImageAsset(name: "weather")
   }
 }

@@ -275,7 +275,7 @@ extension LoginViewController {
     
     @objc private func actionButtonTapped() {
          self.dismiss(animated: true) {
-            self.navigationController?.pushViewController(HomeViewController(), animated: true)
+            self.navigationController?.pushViewController(HomeViewController(viewModel: DevicesViewModel()), animated: true)
         }
     }
 }

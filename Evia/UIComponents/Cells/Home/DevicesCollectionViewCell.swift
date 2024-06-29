@@ -18,19 +18,18 @@ class DevicesCollectionViewCell: UICollectionViewCell {
         return image
     }()
     
-     let textLabel: UILabel = {
+    let textLabel: UILabel = {
         let label = UILabel()
         label.text = "Air Conditioner"
-         label.numberOfLines = 0
-         label.font = .font(.interMedium, size: .h6)
-         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.font = .font(.interMedium, size: .h6)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let switchButton: UISwitch = {
         let button = UISwitch()
         button.isOn = false
-        //button.addTarget(self, action: #selector(switchButtonToggled(_:)), for: .valueChanged)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -40,39 +39,28 @@ class DevicesCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(bookmarkIcon)
         contentView.addSubview(textLabel)
         contentView.addSubview(switchButton)
-        //textLabel.frame = CGRect(x: 15, y: contentView.frame.maxY - 35, width: contentView.frame.width - 35, height: 25)
         contentView.layer.cornerRadius = 16
         applyConstraints()
     }
     
     private func applyConstraints() {
-        
         let iconConstraints = [
             bookmarkIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
-            //textButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             bookmarkIcon.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-            //textLabel.trailingAnchor.constraint(equalTo: textButton.trailingAnchor),
-           //bookmarkIcon.heightAnchor.constraint(equalToConstant: 25),
-           //bookmarkIcon.widthAnchor.constraint(equalToConstant: 25)
-                
+            bookmarkIcon.widthAnchor.constraint(equalToConstant: 25),
+            bookmarkIcon.heightAnchor.constraint(equalToConstant: 25)
         ]
         NSLayoutConstraint.activate(iconConstraints)
         
         let textLabelConstraints = [
             textLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            //textButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             textLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
-            textLabel.trailingAnchor.constraint(equalTo: switchButton.trailingAnchor),
-            //textButton.heightAnchor.constraint(equalToConstant: 25)
         ]
         NSLayoutConstraint.activate(textLabelConstraints)
         
         let switchButtonConstraints = [
             switchButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
-            //textButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            switchButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            //textButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            //textButton.heightAnchor.constraint(equalToConstant: 25)
+            switchButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16)
         ]
         NSLayoutConstraint.activate(switchButtonConstraints)
     }
@@ -82,4 +70,9 @@ class DevicesCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     // swiftlint:enable fatal_error
+    
+    func configure(with deviceData: Devices) {
+        textLabel.text = deviceData.name
+        switchButton.isOn = deviceData.isLocked
+    }
 }
