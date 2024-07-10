@@ -10,7 +10,7 @@ import Foundation
 struct Devices: Codable {
     let id: Int
     let name: String
-    let isLocked: Bool
+    var isLocked: Bool
 
     enum CodingKeys: String, CodingKey {
         case id, name

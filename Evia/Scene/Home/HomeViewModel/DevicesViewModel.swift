@@ -16,6 +16,7 @@ protocol DevicesViewModelProtocol {
 class DevicesViewModel: DevicesViewModelProtocol {
     private var serviceAllDevices = HomeService()
     internal var reloadData: (([Devices]) -> ())?
+    private var allDevices: [Devices] = []
     
     init() {
         self.serviceAllDevices = HomeService()
@@ -33,13 +34,18 @@ class DevicesViewModel: DevicesViewModelProtocol {
     }
     
     func updateDeviceStatus(id: Int, isLocked: Bool, completion: @escaping (Result<Void, Error>) -> Void) {
-            serviceAllDevices.setDevice(id: id, isLocked: isLocked) { result in
-                switch result {
-                case .success:
-                    completion(.success(()))
-                case .failure(let error):
-                    completion(.failure(error))
+        serviceAllDevices.setDevice(id: id, isLocked: isLocked) { [weak self] result in
+            switch result {
+            case .success:
+                // Update the device's state locally
+                if let index = self?.allDevices.firstIndex(where: { $0.id == id }) {
+                    self?.allDevices[index].isLocked = isLocked
+                    self?.reloadData?(self?.allDevices ?? [])
                 }
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
+    }
 }

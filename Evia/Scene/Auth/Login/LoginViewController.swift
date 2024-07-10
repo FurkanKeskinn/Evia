@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
@@ -127,6 +128,9 @@ class LoginViewController: UIViewController {
         contentConfigure()
         view.backgroundColor = .systemBackground
         
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
         addTapGestureToForgotPassword()
         addTapGestureToSignInLabel()
         
@@ -243,8 +247,18 @@ extension LoginViewController {
     }
     
     @objc private func buttonLoginTapped() {
-        self.presentModalController()
-    }
+            guard let email = emailTextField.text, !email.isEmpty,
+                  let password = passwordTextField.text, !password.isEmpty else {return}
+            
+            Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+                guard let self = self else { return }
+                if let error = error {
+                    self.presentModalController()
+                } else {
+                    self.navigationController?.pushViewController(HomeViewController(viewModel: DevicesViewModel()), animated: true)
+                }
+            }
+        }
     
     private func addTapGestureToSignInLabel() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(signUpLabelTapped))
@@ -276,6 +290,33 @@ extension LoginViewController {
     @objc private func actionButtonTapped() {
          self.dismiss(animated: true) {
             self.navigationController?.pushViewController(HomeViewController(viewModel: DevicesViewModel()), animated: true)
+        }
+    }
+}
+
+// MARK: - Button Color Change
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == emailTextField || textField == passwordTextField {
+            updateButtonBackgroundColor()
+        }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == passwordTextField || textField == emailTextField {
+            updateButtonBackgroundColor()
+        }
+    }
+    
+    private func updateButtonBackgroundColor() {
+        if let email = emailTextField.text, let password = passwordTextField.text, !email.isEmpty || !password.isEmpty {
+            loginButton.backgroundColor = .appEdit
+            loginButton.setTitleColor(.appWhite, for: .normal)
+            
+        } else {
+            
+            loginButton.backgroundColor = .appWeather
+            loginButton.setTitleColor(.appBlack, for: .normal)
         }
     }
 }

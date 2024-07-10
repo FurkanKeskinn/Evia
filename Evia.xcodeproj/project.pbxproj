@@ -11,6 +11,7 @@
 		DC2B5B6B2B84C6E500115DB8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B5B6A2B84C6E500115DB8 /* LoginViewController.swift */; };
 		DC2B5B732B84E0B100115DB8 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B5B722B84E0B100115DB8 /* FloatLabelTextField.swift */; };
 		DC350D002C30263D00875FFE /* SetDeviceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC350CFF2C30263D00875FFE /* SetDeviceStatus.swift */; };
+		DC350D022C302CD200875FFE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC350D012C302CD200875FFE /* GoogleService-Info.plist */; };
 		DC3742AD2B90F9A70007F799 /* CustomBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3742AC2B90F9A70007F799 /* CustomBottomSheetView.swift */; };
 		DC4600FF2B69324600EA525E /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC98966F2B65AA6F00B6A41B /* Inter-Regular.ttf */; };
 		DC4601022B69370100EA525E /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC4601012B69348A00EA525E /* Inter-Medium.ttf */; };
@@ -54,6 +55,7 @@
 		DC2B5B6A2B84C6E500115DB8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DC2B5B722B84E0B100115DB8 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		DC350CFF2C30263D00875FFE /* SetDeviceStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetDeviceStatus.swift; path = Weather/SetDeviceStatus.swift; sourceTree = "<group>"; };
+		DC350D012C302CD200875FFE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC3742AC2B90F9A70007F799 /* CustomBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomSheetView.swift; sourceTree = "<group>"; };
 		DC4601012B69348A00EA525E /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		DC5C386F2C2D9DEF00A8DBA8 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				DC61F79B2B1E03D900B15A27 /* Assets.xcassets */,
 				DC61F79D2B1E03D900B15A27 /* LaunchScreen.storyboard */,
 				DC61F7A02B1E03D900B15A27 /* Info.plist */,
+				DC350D012C302CD200875FFE /* GoogleService-Info.plist */,
 			);
 			path = Evia;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				DC61F79F2B1E03D900B15A27 /* LaunchScreen.storyboard in Resources */,
 				DC61F79C2B1E03D900B15A27 /* Assets.xcassets in Resources */,
 				DCB6AFE12B210A9900A73C79 /* swiftgen.yml in Resources */,
+				DC350D022C302CD200875FFE /* GoogleService-Info.plist in Resources */,
 				DCB6AFD72B21044E00A73C79 /* Images.xcassets in Resources */,
 				DCB6AFDC2B21057E00A73C79 /* General.strings in Resources */,
 				DCB6AFD52B21043400A73C79 /* Icons.xcassets in Resources */,

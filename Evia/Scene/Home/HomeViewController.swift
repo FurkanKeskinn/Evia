@@ -8,25 +8,25 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     private let datas: [String] = ["Arriving Home", "Leaving", "Night Time", "Leaving", "Arrive Home", "Night Time"]
     
-  /* private let titleLabel: UILabel = {
-       let label = UILabel()
-        label.text = "Home"
-       label.font = .font(.interRegular, size: .large)
-       label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let titleIcon: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(asset: Asset.Icons.down)
-        return image
-    }() 
-    */
+    /* private let titleLabel: UILabel = {
+     let label = UILabel()
+     label.text = "Home"
+     label.font = .font(.interRegular, size: .large)
+     label.translatesAutoresizingMaskIntoConstraints = false
+     return label
+     }()
+     
+     private let titleIcon: UIImageView = {
+     let image = UIImageView()
+     image.image = UIImage(asset: Asset.Icons.down)
+     return image
+     }()
+     */
     private let titleButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.setTitle("Home", for: .normal)
         button.titleLabel?.font = .font(.interRegular, size: .large)
         button.setTitleColor(.appBlack, for: .normal)
@@ -42,10 +42,10 @@ class HomeViewController: UIViewController {
         return button
     }()
     
-   private let titleStackView: UIStackView = {
-       let stackview = UIStackView()
-       stackview.axis = .horizontal
-       stackview.alignment = .center
+    private let titleStackView: UIStackView = {
+        let stackview = UIStackView()
+        stackview.axis = .horizontal
+        stackview.alignment = .center
         return stackview
     }()
     
@@ -53,8 +53,8 @@ class HomeViewController: UIViewController {
         let stackview = UIStackView()
         stackview.axis = .horizontal
         stackview.distribution = .equalSpacing
-         return stackview
-     }()
+        return stackview
+    }()
     
     private let weatherView = WeatherView()
     
@@ -63,37 +63,37 @@ class HomeViewController: UIViewController {
         label.text = "Quick action"
         label.font = .font(.interMedium, size: .h4)
         return label
-     }()
-     
-     private let bookmarkIcon: UIImageView = {
-         let image = UIImageView()
-         image.image = UIImage(asset: Asset.Icons.bookmark)
-         return image
-     }()
-     
-     private let editButton: UIButton = {
-         let button = UIButton()
-         button.setTitle("Edit", for: .normal)
-         button.setTitleColor(.appEdit, for: .normal)
-         button.titleLabel?.font = .font(.interMedium, size: .h6)
-         button.addTarget(self, action: #selector(buttonEditTapped), for: .touchUpInside)
-         return button
-     }()
-     
+    }()
+    
+    private let bookmarkIcon: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(asset: Asset.Icons.bookmark)
+        return image
+    }()
+    
+    private let editButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Edit", for: .normal)
+        button.setTitleColor(.appEdit, for: .normal)
+        button.titleLabel?.font = .font(.interMedium, size: .h6)
+        button.addTarget(self, action: #selector(buttonEditTapped), for: .touchUpInside)
+        return button
+    }()
+    
     private let quickActionStackView: UIStackView = {
         let stackview = UIStackView()
         stackview.axis = .horizontal
         stackview.spacing = 2.5
         stackview.alignment = .center
-         return stackview
-     }()
-     
-     private let actionStackView: UIStackView = {
-         let stackview = UIStackView()
-         stackview.axis = .horizontal
-         stackview.distribution = .equalSpacing
-          return stackview
-      }()
+        return stackview
+    }()
+    
+    private let actionStackView: UIStackView = {
+        let stackview = UIStackView()
+        stackview.axis = .horizontal
+        stackview.distribution = .equalSpacing
+        return stackview
+    }()
     
     private let mainStackView: UIStackView = {
         let stackview = UIStackView()
@@ -105,13 +105,13 @@ class HomeViewController: UIViewController {
     
     private let actionCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-         layout.scrollDirection = .horizontal
+        layout.scrollDirection = .horizontal
         layout.estimatedItemSize = CGSize(width: layout.itemSize.width, height: 0)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
-         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(ActionsCollectionViewCell.self, forCellWithReuseIdentifier: ActionsCollectionViewCell.identifier)
-         return collectionView
+        return collectionView
     }()
     
     private let devicesLabel: UILabel = {
@@ -137,7 +137,7 @@ class HomeViewController: UIViewController {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
-        }()
+    }()
     
     private var devicesViewModel: DevicesViewModelProtocol
     private var allDevices: [Devices] = [Devices]()
@@ -148,7 +148,7 @@ class HomeViewController: UIViewController {
         setupViews()
         applyConstraints()
         
-       // setupGestureRecognizers()
+        // setupGestureRecognizers()
         
         
         actionCollectionView.dataSource = self
@@ -159,15 +159,19 @@ class HomeViewController: UIViewController {
         
         
         setupBindings()
-        self.devicesCollectionView.reloadData()
+        devicesViewModel = DevicesViewModel()
+        devicesViewModel.reloadData = { [weak self] devices in
+            self?.allDevices = devices
+            self?.devicesCollectionView.reloadData()
+        }
         weatherViewModel.getWeatherData()
         devicesViewModel.getallDevicesData()
     }
     
     init(viewModel: DevicesViewModel) {
-            self.devicesViewModel = viewModel
-            super.init(nibName: nil, bundle: nil)
-        }
+        self.devicesViewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
     
     // swiftlint:disable fatal_error
     required init?(coder: NSCoder) {
@@ -262,13 +266,13 @@ extension HomeViewController {
 // MARK: - Actions and Devices CollectionView
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      if collectionView == actionCollectionView {
-          return datas.count + 1
-      } else if collectionView == devicesCollectionView {
-          return allDevices.count
-      }
-      return 0
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == actionCollectionView {
+            return datas.count + 1
+        } else if collectionView == devicesCollectionView {
+            return allDevices.count
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -276,7 +280,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let colors: [UIColor] = [.appYellow, .appPurple, .appGreen]
             return Array(repeating: colors, count: (datas.count / colors.count) + 1).flatMap { $0 }
         }()
-
+        
         if collectionView == actionCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ActionsCollectionViewCell.identifier, for: indexPath) as? ActionsCollectionViewCell
             if indexPath.row == 0 {
@@ -299,70 +303,190 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell?.configure(with: allDevices[indexPath.row])
             cell?.switchButton.addTarget(self, action: #selector(switchValueChanged(_:)), for: .valueChanged)
             
-                    
+            
             return cell!
         }
         return UICollectionViewCell()
     }
     
     @objc func switchValueChanged(_ sender: UISwitch) {
-            guard let cell = sender.superview?.superview as? DevicesCollectionViewCell,
-                  let indexPath = devicesCollectionView.indexPath(for: cell) else {
-                return
-            }
-            
-            let device = allDevices[indexPath.row]
-            let newLockState = sender.isOn
-            
+        guard let cell = sender.superview?.superview as? DevicesCollectionViewCell,
+              let indexPath = devicesCollectionView.indexPath(for: cell) else {
+            return
+        }
+        
+        let device = allDevices[indexPath.row]
+        let newLockState = sender.isOn
+        
+        // Create a confirmation alert
+        let alert = UIAlertController(title: "Confirm Action", message: "Are you sure you want to \(newLockState ? "lock" : "unlock") \(device.name)?", preferredStyle: .alert)
+        
+        // Add actions to the alert
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            // Reset switch state or handle cancellation
+            sender.isOn = !newLockState
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { _ in
             // Update device status via viewModel
-        devicesViewModel.updateDeviceStatus(id: device.id, isLocked: newLockState) { result in
+            self.devicesViewModel.updateDeviceStatus(id: device.id, isLocked: newLockState) { result in
                 switch result {
                 case .success:
                     print("Device status updated successfully")
+                    
+                    DispatchQueue.main.async {
+                        self.allDevices[indexPath.row].isLocked = newLockState
+                        self.devicesCollectionView.reloadData()
+                    }
                 case .failure(let error):
                     print("Failed to update device status: \(error)")
                     // Handle error
                 }
             }
-        }
+        }))
+        
+        // Present the alert
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: - Response Data
 extension HomeViewController {
     private func setupBindings() {
         devicesViewModel.reloadData = { [weak self] devices in
-            self?.devicesCollectionView.reloadData()
             self?.allDevices = devices
+            self?.devicesCollectionView.reloadData()
         }
-           weatherViewModel.reloadData = { [weak self] weather in
-               let city = weather.name
-               let temperature = String(Int(weather.main.temp - 273.15)) + "°C"
-               self?.updateWeatherView(city: city, temperature: temperature)
-           }
-       }
+        weatherViewModel.reloadData = { [weak self] weather in
+            let city = weather.name
+            let temperature = String(Int(weather.main.temp - 273.15)) + "°C"
+            self?.updateWeatherView(city: city, temperature: temperature)
+            self?.handleWeatherCondition(weather.main.temp - 273.15) // Convert from Kelvin to Celsius
+        }
+    }
+    
+    private func handleWeatherCondition(_ temperature: Double) {
+        if temperature > 32 {
+            let alert = UIAlertController(title: "Weather Alert", message: "It's hot outside. Do you want to turn on the air conditioners?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
+                self.turnOnAirConditioners()
+                self.closeDoorsAndWindows()
+            }))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Weather Alert", message: "It's cool outside. Do you want to open the windows and doors?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
+                self.openDoorsAndWindows()
+                self.turnOffAirConditioners()
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    private func openDoorsAndWindows() {
+        let devicesToUpdate = allDevices.filter { $0.name.contains("doors") || $0.name.contains("windows") }
+        for device in devicesToUpdate {
+            devicesViewModel.updateDeviceStatus(id: device.id, isLocked: true) { result in
+                switch result {
+                case .success:
+                    print("Device \(device.name) unlocked successfully")
+                    DispatchQueue.main.async {
+                        if let index = self.allDevices.firstIndex(where: { $0.id == device.id }) {
+                            self.allDevices[index].isLocked = true
+                            self.devicesCollectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
+                        }
+                    }
+                case .failure(let error):
+                    print("Failed to unlock device \(device.name): \(error)")
+                }
+            }
+        }
+    }
+    
+    private func closeDoorsAndWindows() {
+        let devicesToUpdate = allDevices.filter { $0.name.contains("doors") || $0.name.contains("windows") }
+        for device in devicesToUpdate {
+            devicesViewModel.updateDeviceStatus(id: device.id, isLocked: false) { result in
+                switch result {
+                case .success:
+                    print("Device \(device.name) unlocked successfully")
+                    DispatchQueue.main.async {
+                        if let index = self.allDevices.firstIndex(where: { $0.id == device.id }) {
+                            self.allDevices[index].isLocked = false
+                            self.devicesCollectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
+                        }
+                    }
+                case .failure(let error):
+                    print("Failed to unlock device \(device.name): \(error)")
+                }
+            }
+        }
+    }
+    
+    private func turnOnAirConditioners() {
+        let acDevices = allDevices.filter { $0.name.contains("air_conditioners") }
+        for device in acDevices {
+            devicesViewModel.updateDeviceStatus(id: device.id, isLocked: true) { result in
+                switch result {
+                case .success:
+                    print("Air conditioners turned on successfully")
+                    DispatchQueue.main.async {
+                        if let index = self.allDevices.firstIndex(where: { $0.id == device.id }) {
+                            self.allDevices[index].isLocked = true
+                            self.devicesCollectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
+                        }
+                    }
+                case .failure(let error):
+                    print("Failed to turn on air conditioners: \(error)")
+                }
+            }
+        }
+    }
+    
+    private func turnOffAirConditioners() {
+        let acDevices = allDevices.filter { $0.name.contains("air_conditioners") }
+        for device in acDevices {
+            devicesViewModel.updateDeviceStatus(id: device.id, isLocked: false) { result in
+                switch result {
+                case .success:
+                    print("Air conditioners turned on successfully")
+                    DispatchQueue.main.async {
+                        if let index = self.allDevices.firstIndex(where: { $0.id == device.id }) {
+                            self.allDevices[index].isLocked = false
+                            self.devicesCollectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
+                        }
+                    }
+                case .failure(let error):
+                    print("Failed to turn on air conditioners: \(error)")
+                }
+            }
+        }
+    }
 }
 
 // MARK: - Weather View
 extension HomeViewController {
     
     private func updateWeatherView(city: String, temperature: String) {
-            // WeatherView'in içeriğini güncelleyin
+        // WeatherView'in içeriğini güncelleyin
         weatherView.cityLabel.text = city
-            weatherView.temperatureLabel.text = temperature
-            // İkonları güncellemek için gerekirse:
+        weatherView.temperatureLabel.text = temperature
+        // İkonları güncellemek için gerekirse:
         weatherView.weatherIconImageView.image = UIImage(asset: Asset.Images.weather)
         weatherView.locationIconImageView.image = UIImage(asset: Asset.Icons.location)
-        }
+    }
 }
 
 extension HomeViewController {
-   /* private func setupGestureRecognizers() {
-        // UITapGestureRecognizer oluştur
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        titleLabel.addGestureRecognizer(tapGesture)
-        titleLabel.isUserInteractionEnabled = true // Kullanıcı etkileşimini etkinleştir
-    }*/
-
+    /* private func setupGestureRecognizers() {
+     // UITapGestureRecognizer oluştur
+     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+     titleLabel.addGestureRecognizer(tapGesture)
+     titleLabel.isUserInteractionEnabled = true // Kullanıcı etkileşimini etkinleştir
+     }*/
+    
     @objc private func handleTap(_ sender: UITapGestureRecognizer) {
         // Menüyü oluştur
         let menu = UIMenu(title: "Home", children: [
@@ -382,39 +506,39 @@ extension HomeViewController {
             let menuController = UIMenuController.shared
             menuController.showMenu(from: tapView, rect: tapView.bounds)
         }
-
+        
     }
 }
 
 /*extension HomeViewController {
-    private func setupGestureRecognizers() {
-        // UITapGestureRecognizer oluştur
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        titleLabel.addGestureRecognizer(tapGesture)
-        titleLabel.isUserInteractionEnabled = true // Kullanıcı etkileşimini etkinleştir
-    }
-
-    @objc private func handleTap(_ sender: UITapGestureRecognizer) {
-        // Burada istediğiniz işlemleri gerçekleştirin
-        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        let action1 = UIAlertAction(title: "Action 1", style: .default) { _ in
-            // Eylem 1'in gerçekleştirilmesi
-            print("Action 1 selected")
-        }
-        let action2 = UIAlertAction(title: "Action 2", style: .default) { _ in
-            // Eylem 2'nin gerçekleştirilmesi
-            print("Action 2 selected")
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        actionSheet.addAction(action1)
-        actionSheet.addAction(action2)
-        actionSheet.addAction(cancelAction)
-        
-        present(actionSheet, animated: true, completion: nil)
-    }
-}*/
+ private func setupGestureRecognizers() {
+ // UITapGestureRecognizer oluştur
+ let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+ titleLabel.addGestureRecognizer(tapGesture)
+ titleLabel.isUserInteractionEnabled = true // Kullanıcı etkileşimini etkinleştir
+ }
+ 
+ @objc private func handleTap(_ sender: UITapGestureRecognizer) {
+ // Burada istediğiniz işlemleri gerçekleştirin
+ let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+ 
+ let action1 = UIAlertAction(title: "Action 1", style: .default) { _ in
+ // Eylem 1'in gerçekleştirilmesi
+ print("Action 1 selected")
+ }
+ let action2 = UIAlertAction(title: "Action 2", style: .default) { _ in
+ // Eylem 2'nin gerçekleştirilmesi
+ print("Action 2 selected")
+ }
+ let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+ 
+ actionSheet.addAction(action1)
+ actionSheet.addAction(action2)
+ actionSheet.addAction(cancelAction)
+ 
+ present(actionSheet, animated: true, completion: nil)
+ }
+ }*/
 
 import SwiftUI
 #if DEBUG
